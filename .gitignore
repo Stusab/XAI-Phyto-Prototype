@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+env.bak/
+venv.bak/
+
+# Streamlit
+.streamlit/
+
+# Models & Data Cache
+*.joblib
+*.pkl
+*.model
+
+# OS generated files
+.DS_Store
+Thumbs.db

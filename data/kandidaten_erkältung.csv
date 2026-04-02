@@ -1,0 +1,31 @@
+symptom,indikation,pflanze,channel,matches
+Harnverhalten,Reizblase,Kürbis,evidenz_basiert,2
+Husten,Erkältungskrankheiten,Linde,evidenz_basiert,2
+leichte Stresssymptome,Erkältungskrankheiten,Linde,traditionell_hmpc,2
+Blähungen,Erkältungen,Pfefferminze,evidenz_basiert,1
+Blähungen,Erkältungen,Pfefferminze,traditionell_hmpc,1
+Blähungen,Husten,Pfefferminze,evidenz_basiert,1
+Blähungen,Husten,Pfefferminze,traditionell_hmpc,1
+Blähungen,Husten im Zusammenhang mit einer Erkältung,Fenchel,evidenz_basiert,1
+Blähungen,Husten im Zusammenhang mit einer Erkältung,Fenchel,traditionell_hmpc,1
+Blähungen,Husten und Erkältungen,Pfefferminze,evidenz_basiert,1
+Blähungen,Husten und Erkältungen,Pfefferminze,traditionell_hmpc,1
+Blähungen,banale Erkältung,Kamille,traditionell_hmpc,1
+Erkältungssymptome,"Behandlung kleiner, oberflächlicher Wunden",Echinacea,traditionell_hmpc,1
+Erkältungssymptome,Behandlung von Pusteln und Pickeln bei leichter Akne,Echinacea,traditionell_hmpc,1
+Erkältungssymptome,Bronchitis,Thymian,traditionell_hmpc,1
+Erkältungssymptome,Entzündungen der Mundschleimhaut,Thymian,traditionell_hmpc,1
+Erkältungssymptome,Erkältungen,Pfefferminze,traditionell_hmpc,1
+Erkältungssymptome,Erkältungskrankheiten,Echinacea,traditionell_hmpc,1
+Erkältungssymptome,Gastritis,Pfefferminze,traditionell_hmpc,1
+Erkältungssymptome,Husten,Pfefferminze,traditionell_hmpc,1
+Erkältungssymptome,Husten und Erkältungen,Pfefferminze,traditionell_hmpc,1
+Erkältungssymptome,Infekte der ableitenden Harnwege,Echinacea,traditionell_hmpc,1
+Erkältungssymptome,Juckreiz der intakten Haut,Pfefferminze,traditionell_hmpc,1
+Erkältungssymptome,Katarrhe der oberen Luftwege,Pfefferminze,traditionell_hmpc,1
+Erkältungssymptome,Katarrhe der oberen Luftwege,Thymian,traditionell_hmpc,1
+Erkältungssymptome,Keuchhusten,Thymian,traditionell_hmpc,1
+Erkältungssymptome,Linderung von Erkältungssymptomen,Echinacea,traditionell_hmpc,1
+Erkältungssymptome,Linderung von Erkältungssymptomen,Thymian,traditionell_hmpc,1
+Erkältungssymptome,Magenkatarrh,Pfefferminze,traditionell_hmpc,1
+Erkältungssymptome,Mundgeruch,Thymian,traditionell_hmpc,1

@@ -1,0 +1,31 @@
+symptom,indikation,pflanze,channel,matches
+Muskelschmerzen,Blutergüsse,Arnika,evidenz_basiert,2
+Muskelschmerzen,Verstauchungen,Arnika,evidenz_basiert,2
+leichte Muskel- und Gelenkschmerzen,dyspeptische Beschwerden,Rosmarin,traditionell_hmpc,2
+schmerzhaftes Wasserlassen,Reizblase,Kürbis,evidenz_basiert,2
+Appetitlosigkeit,Rückenschmerzen,Teufelskralle,evidenz_basiert,1
+Appetitlosigkeit,Rückenschmerzen,Teufelskralle,traditionell_hmpc,1
+Appetitlosigkeit,leichte Gliederschmerzen,Teufelskralle,evidenz_basiert,1
+Appetitlosigkeit,leichte Gliederschmerzen,Teufelskralle,traditionell_hmpc,1
+Appetitlosigkeit,schmerzhafte Krampfzustände im Becken der Frau,Schafgarbe,evidenz_basiert,1
+Appetitlosigkeit,schmerzhafte Krampfzustände im Becken der Frau,Schafgarbe,traditionell_hmpc,1
+Blähungen,Muskelschmerzen,Pfefferminze,evidenz_basiert,1
+Blähungen,Muskelschmerzen,Pfefferminze,traditionell_hmpc,1
+Blähungen,Nervenschmerzen,Pfefferminze,evidenz_basiert,1
+Blähungen,Nervenschmerzen,Pfefferminze,traditionell_hmpc,1
+Blähungen,Rückenschmerzen,Teufelskralle,traditionell_hmpc,1
+Blähungen,Spannungskopfschmerzen,Pfefferminze,evidenz_basiert,1
+Blähungen,Spannungskopfschmerzen,Pfefferminze,traditionell_hmpc,1
+Blähungen,leichte Gliederschmerzen,Teufelskralle,traditionell_hmpc,1
+Blähungen,lokale Muskelschmerzen,Pfefferminze,evidenz_basiert,1
+Blähungen,lokale Muskelschmerzen,Pfefferminze,traditionell_hmpc,1
+Blähungen,schmerzhafte Krampfzustände im Becken der Frau,Schafgarbe,traditionell_hmpc,1
+Brennen,schmerzende und schwere Beine,Hamamelis,evidenz_basiert,1
+Brennen,schmerzende und schwere Beine,Hamamelis,traditionell_hmpc,1
+Durchfall,Menstruationsschmerzen,Frauenmantel,evidenz_basiert,1
+Erkältungssymptome,Muskelschmerzen,Pfefferminze,traditionell_hmpc,1
+Erkältungssymptome,Nervenschmerzen,Pfefferminze,traditionell_hmpc,1
+Erkältungssymptome,Spannungskopfschmerzen,Pfefferminze,traditionell_hmpc,1
+Erkältungssymptome,lokale Muskelschmerzen,Pfefferminze,traditionell_hmpc,1
+Flatulenz,Muskelschmerzen,Pfefferminze,evidenz_basiert,1
+Flatulenz,Nervenschmerzen,Pfefferminze,evidenz_basiert,1

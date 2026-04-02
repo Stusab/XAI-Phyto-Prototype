@@ -1,0 +1,31 @@
+symptom,indikation,pflanze,channel,matches
+depressive Verstimmung,nervöse Unruhe,Johanniskraut,evidenz_basiert,2
+Angst,depressive Verstimmungszustände,Johanniskraut,evidenz_basiert,1
+Angst,leichte depressive Episoden,Johanniskraut,evidenz_basiert,1
+Angst,leichte depressive Verstimmung,Johanniskraut,evidenz_basiert,1
+Angst,leichte und mittelschwere Depressionen,Johanniskraut,evidenz_basiert,1
+Blähungen,Stimmungsschwankungen,(Echter) Lavendel,evidenz_basiert,1
+Blähungen,Unruhezustände bei ängstlicher Verstimmung,(Echter) Lavendel,evidenz_basiert,1
+Einschlafstörungen,depressive Verstimmungszustände,Johanniskraut,traditionell_hmpc,1
+Einschlafstörungen,leichte depressive Episoden,Johanniskraut,traditionell_hmpc,1
+Einschlafstörungen,leichte depressive Verstimmung,Johanniskraut,traditionell_hmpc,1
+Einschlafstörungen,leichte und mittelschwere Depressionen,Johanniskraut,traditionell_hmpc,1
+Erregungszustände,Stimmungsschwankungen,(Echter) Lavendel,evidenz_basiert,1
+Erregungszustände,Unruhezustände bei ängstlicher Verstimmung,(Echter) Lavendel,evidenz_basiert,1
+Hautentzündungen,depressive Verstimmungszustände,Johanniskraut,traditionell_hmpc,1
+Hautentzündungen,leichte depressive Episoden,Johanniskraut,traditionell_hmpc,1
+Hautentzündungen,leichte depressive Verstimmung,Johanniskraut,traditionell_hmpc,1
+Hautentzündungen,leichte und mittelschwere Depressionen,Johanniskraut,traditionell_hmpc,1
+Magen-Darm-Beschwerden,depressive Verstimmungszustände,Johanniskraut,traditionell_hmpc,1
+Magen-Darm-Beschwerden,leichte depressive Episoden,Johanniskraut,traditionell_hmpc,1
+Magen-Darm-Beschwerden,leichte depressive Verstimmung,Johanniskraut,traditionell_hmpc,1
+Magen-Darm-Beschwerden,leichte und mittelschwere Depressionen,Johanniskraut,traditionell_hmpc,1
+Unruhe,Stimmungsschwankungen,(Echter) Lavendel,evidenz_basiert,1
+Unruhe,Unruhezustände bei ängstlicher Verstimmung,(Echter) Lavendel,evidenz_basiert,1
+Unruhezustände,Stimmungsschwankungen,(Echter) Lavendel,evidenz_basiert,1
+Unruhezustände,Unruhezustände bei ängstlicher Verstimmung,(Echter) Lavendel,evidenz_basiert,1
+depressive Verstimmung,Angst,Johanniskraut,evidenz_basiert,1
+depressive Verstimmung,Einschlafstörungen,Johanniskraut,evidenz_basiert,1
+depressive Verstimmung,Heilung kleiner Wunden,Johanniskraut,evidenz_basiert,1
+depressive Verstimmung,depressive Verstimmungszustände,Johanniskraut,evidenz_basiert,1
+depressive Verstimmung,leichte Magen-Darm-Beschwerden,Johanniskraut,evidenz_basiert,1

@@ -1,0 +1,31 @@
+symptom,indikation,pflanze,channel,matches
+Angst,nervöse Unruhe,Johanniskraut,evidenz_basiert,2
+Einschlafstörungen,nervöse Unruhe,Johanniskraut,traditionell_hmpc,2
+Hautentzündungen,nervöse Unruhe,Johanniskraut,traditionell_hmpc,2
+Magen-Darm-Beschwerden,nervöse Unruhe,Johanniskraut,traditionell_hmpc,2
+depressive Verstimmung,nervöse Unruhe,Johanniskraut,evidenz_basiert,2
+nervöse Unruhe,nervöse Unruhe,Johanniskraut,evidenz_basiert,2
+nervöse Unruhe,nervöse Unruhe,Johanniskraut,traditionell_hmpc,2
+Angespanntheit,nervöse Unruhezustände,Passionsblume,evidenz_basiert,1
+Angst,Angst,Johanniskraut,evidenz_basiert,1
+Angst,Einschlafstörungen,Johanniskraut,evidenz_basiert,1
+Angst,Heilung kleiner Wunden,Johanniskraut,evidenz_basiert,1
+Angst,depressive Verstimmungszustände,Johanniskraut,evidenz_basiert,1
+Angst,leichte Magen-Darm-Beschwerden,Johanniskraut,evidenz_basiert,1
+Angst,leichte depressive Episoden,Johanniskraut,evidenz_basiert,1
+Angst,leichte depressive Verstimmung,Johanniskraut,evidenz_basiert,1
+Angst,leichte und mittelschwere Depressionen,Johanniskraut,evidenz_basiert,1
+Angst,mentale Erschöpfungszustände,Johanniskraut,evidenz_basiert,1
+Angst,psychovegetative Störungen,Johanniskraut,evidenz_basiert,1
+Angst,symptomatische Behandlung leichter Hautentzündungen,Johanniskraut,evidenz_basiert,1
+Angst,zeitweilige mentale Erschöpfung,Johanniskraut,evidenz_basiert,1
+Angstzustände,Angstzustände,Hopfen,evidenz_basiert,1
+Angstzustände,Befindensstörungen,Hopfen,evidenz_basiert,1
+Angstzustände,Besserung leichter Stresssymptome,Hopfen,evidenz_basiert,1
+Angstzustände,Besserung von Schlafstörungen (Kombination mit Baldrianwurzel),Hopfen,evidenz_basiert,1
+Angstzustände,Nervosität,Hopfen,evidenz_basiert,1
+Angstzustände,Schlafhilfe,Hopfen,evidenz_basiert,1
+Angstzustände,Schlafstörungen,Hopfen,evidenz_basiert,1
+Angstzustände,Unruhe,Hopfen,evidenz_basiert,1
+Blähungen,Unruhe,Melisse,traditionell_hmpc,1
+Blähungen,Unruhezustände bei ängstlicher Verstimmung,(Echter) Lavendel,evidenz_basiert,1

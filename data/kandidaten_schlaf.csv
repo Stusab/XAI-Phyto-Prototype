@@ -1,0 +1,31 @@
+symptom,indikation,pflanze,channel,matches
+Einschlafstörungen,nervöse Unruhe,Johanniskraut,traditionell_hmpc,2
+Angespanntheit,Einschlafstörungen,Passionsblume,evidenz_basiert,1
+Angespanntheit,Schlafhilfe,Passionsblume,evidenz_basiert,1
+Angst,Einschlafstörungen,Johanniskraut,evidenz_basiert,1
+Angstzustände,Besserung von Schlafstörungen (Kombination mit Baldrianwurzel),Hopfen,evidenz_basiert,1
+Angstzustände,Schlafhilfe,Hopfen,evidenz_basiert,1
+Angstzustände,Schlafstörungen,Hopfen,evidenz_basiert,1
+Blähungen,Einschlafhilfe,Melisse,traditionell_hmpc,1
+Blähungen,Einschlafstörungen,(Echter) Lavendel,evidenz_basiert,1
+Blähungen,Schlafhilfe,(Echter) Lavendel,evidenz_basiert,1
+Blähungen,Schlafstörungen,(Echter) Lavendel,evidenz_basiert,1
+Blähungen,nervös bedingte Einschlafbeschwerden,Melisse,traditionell_hmpc,1
+Einschlafstörungen,Angst,Johanniskraut,traditionell_hmpc,1
+Einschlafstörungen,Einschlafstörungen,Johanniskraut,traditionell_hmpc,1
+Einschlafstörungen,Heilung kleiner Wunden,Johanniskraut,traditionell_hmpc,1
+Einschlafstörungen,depressive Verstimmungszustände,Johanniskraut,traditionell_hmpc,1
+Einschlafstörungen,leichte Magen-Darm-Beschwerden,Johanniskraut,traditionell_hmpc,1
+Einschlafstörungen,leichte depressive Episoden,Johanniskraut,traditionell_hmpc,1
+Einschlafstörungen,leichte depressive Verstimmung,Johanniskraut,traditionell_hmpc,1
+Einschlafstörungen,leichte und mittelschwere Depressionen,Johanniskraut,traditionell_hmpc,1
+Einschlafstörungen,mentale Erschöpfungszustände,Johanniskraut,traditionell_hmpc,1
+Einschlafstörungen,psychovegetative Störungen,Johanniskraut,traditionell_hmpc,1
+Einschlafstörungen,symptomatische Behandlung leichter Hautentzündungen,Johanniskraut,traditionell_hmpc,1
+Einschlafstörungen,zeitweilige mentale Erschöpfung,Johanniskraut,traditionell_hmpc,1
+Erregungszustände,Einschlafstörungen,(Echter) Lavendel,evidenz_basiert,1
+Erregungszustände,Schlafhilfe,(Echter) Lavendel,evidenz_basiert,1
+Erregungszustände,Schlafstörungen,(Echter) Lavendel,evidenz_basiert,1
+Flatulenz,Einschlafhilfe,Melisse,traditionell_hmpc,1
+Flatulenz,nervös bedingte Einschlafbeschwerden,Melisse,traditionell_hmpc,1
+Hautentzündungen,Einschlafstörungen,Johanniskraut,traditionell_hmpc,1

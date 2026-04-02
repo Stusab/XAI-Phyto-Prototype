@@ -1,0 +1,31 @@
+symptom,indikation,pflanze,channel,matches
+Magen-Darm-Beschwerden,nervöse Unruhe,Johanniskraut,traditionell_hmpc,2
+leichte krampfartige Magen-Darm-Beschwerden,dyspeptische Beschwerden,Rosmarin,traditionell_hmpc,2
+Angst,leichte Magen-Darm-Beschwerden,Johanniskraut,evidenz_basiert,1
+Appetitlosigkeit,Behandlung leichter krampfartiger Beschwerden im Magen-Darm-Bereich,Schafgarbe,evidenz_basiert,1
+Appetitlosigkeit,Behandlung leichter krampfartiger Beschwerden im Magen-Darm-Bereich,Schafgarbe,traditionell_hmpc,1
+Appetitlosigkeit,leichte krampfartige Beschwerden im Magen-Darm-Bereich,Schafgarbe,evidenz_basiert,1
+Appetitlosigkeit,leichte krampfartige Beschwerden im Magen-Darm-Bereich,Schafgarbe,traditionell_hmpc,1
+Blähungen,Behandlung leichter krampfartiger Beschwerden im Magen-Darm-Bereich,Schafgarbe,traditionell_hmpc,1
+Blähungen,Magen-Darm-Beschwerden,Kamille,traditionell_hmpc,1
+Blähungen,Magen-Darm-Krämpfe,Kümmel,evidenz_basiert,1
+Blähungen,Magen-Darm-Krämpfe,Kümmel,traditionell_hmpc,1
+Blähungen,Magenkatarrh,Pfefferminze,evidenz_basiert,1
+Blähungen,Magenkatarrh,Pfefferminze,traditionell_hmpc,1
+Blähungen,Reizdarm-Syndrom,Pfefferminze,evidenz_basiert,1
+Blähungen,Reizdarm-Syndrom,Pfefferminze,traditionell_hmpc,1
+Blähungen,funktionelle Magen-Darm-Beschwerden,Melisse,traditionell_hmpc,1
+Blähungen,krampfartige Beschwerden im Magen-Darm-Trakt,Pfefferminze,evidenz_basiert,1
+Blähungen,krampfartige Beschwerden im Magen-Darm-Trakt,Pfefferminze,traditionell_hmpc,1
+Blähungen,leichte krampfartige Beschwerden im Magen-Darm-Bereich,Fenchel,evidenz_basiert,1
+Blähungen,leichte krampfartige Beschwerden im Magen-Darm-Bereich,Fenchel,traditionell_hmpc,1
+Blähungen,leichte krampfartige Beschwerden im Magen-Darm-Bereich,Schafgarbe,traditionell_hmpc,1
+Blähungen,leichte krampfartige Magen-Darm-Beschwerden,Ingwer,traditionell_hmpc,1
+Blähungen,leichte krampfartige Magen-Darm-Beschwerden,Melisse,traditionell_hmpc,1
+Blähungen,"leichte, krampfartige Magen-Darm-Beschwerden",Fenchel,evidenz_basiert,1
+Blähungen,"leichte, krampfartige Magen-Darm-Beschwerden",Fenchel,traditionell_hmpc,1
+Blähungen,nervöse Darmbeschwerden,(Echter) Lavendel,evidenz_basiert,1
+Blähungen,nervöser Reizmagen,(Echter) Lavendel,evidenz_basiert,1
+Durchfall,Magen-Darm-Beschwerden,Frauenmantel,evidenz_basiert,1
+Einschlafstörungen,leichte Magen-Darm-Beschwerden,Johanniskraut,traditionell_hmpc,1
+Erbrechen,leichte krampfartige Magen-Darm-Beschwerden,Ingwer,evidenz_basiert,1

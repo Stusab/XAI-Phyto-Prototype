@@ -1,0 +1,31 @@
+symptom,indikation,pflanze,channel,matches
+Hautentzündungen,nervöse Unruhe,Johanniskraut,traditionell_hmpc,2
+Sonnenbrand,kleine Wunden,Ringelblume,traditionell_hmpc,2
+leichte Entzündungen der Haut,kleine Wunden,Ringelblume,traditionell_hmpc,2
+leichte Hautentzündungen,vermehrte Schweißsekretion,Salbei,traditionell_hmpc,2
+Angst,Heilung kleiner Wunden,Johanniskraut,evidenz_basiert,1
+Angst,symptomatische Behandlung leichter Hautentzündungen,Johanniskraut,evidenz_basiert,1
+Appetitlosigkeit,"Behandlung kleiner, oberflächlicher Wunden",Schafgarbe,evidenz_basiert,1
+Appetitlosigkeit,"Behandlung kleiner, oberflächlicher Wunden",Schafgarbe,traditionell_hmpc,1
+Appetitlosigkeit,kleine Wunden,Schafgarbe,evidenz_basiert,1
+Appetitlosigkeit,kleine Wunden,Schafgarbe,traditionell_hmpc,1
+Appetitlosigkeit,leichte Haut- und Schleimhautentzündungen,Schafgarbe,evidenz_basiert,1
+Appetitlosigkeit,leichte Haut- und Schleimhautentzündungen,Schafgarbe,traditionell_hmpc,1
+Beinschwellungen,trophische Veränderungen der Haut,(Gemeine) Rosskastanie,evidenz_basiert,1
+Bluterguss,trophische Veränderungen der Haut,(Gemeine) Rosskastanie,traditionell_hmpc,1
+Blähungen,"Behandlung kleiner, oberflächlicher Wunden",Schafgarbe,traditionell_hmpc,1
+Blähungen,Behandlung leichter Hautentzündungen,Salbei,evidenz_basiert,1
+Blähungen,Behandlung leichter Hautentzündungen,Salbei,traditionell_hmpc,1
+Blähungen,Entzündungen der Haut,Kamille,traditionell_hmpc,1
+Blähungen,Entzündungen der Mundschleimhaut,Salbei,evidenz_basiert,1
+Blähungen,Entzündungen der Mundschleimhaut,Salbei,traditionell_hmpc,1
+Blähungen,Entzündungen der Rachenschleimhaut,Salbei,evidenz_basiert,1
+Blähungen,Entzündungen der Rachenschleimhaut,Salbei,traditionell_hmpc,1
+Blähungen,Infektionen der Mundschleimhaut,Salbei,evidenz_basiert,1
+Blähungen,Infektionen der Mundschleimhaut,Salbei,traditionell_hmpc,1
+Blähungen,Juckreiz der intakten Haut,Pfefferminze,evidenz_basiert,1
+Blähungen,Juckreiz der intakten Haut,Pfefferminze,traditionell_hmpc,1
+Blähungen,Mundschleimhautentzündung,Salbei,evidenz_basiert,1
+Blähungen,Mundschleimhautentzündung,Salbei,traditionell_hmpc,1
+Blähungen,Mundschleimhautentzündungen,Pfefferminze,evidenz_basiert,1
+Blähungen,Mundschleimhautentzündungen,Pfefferminze,traditionell_hmpc,1

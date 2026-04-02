@@ -1,0 +1,31 @@
+symptom,indikation,pflanze,channel,matches
+Beschwerden beim Wasserlassen,Reizblase,Kürbis,evidenz_basiert,2
+Beschwerden der ableitenden Harnwege,Reizblase,Kürbis,traditionell_hmpc,2
+Harnverhalten,Reizblase,Kürbis,evidenz_basiert,2
+Miktionsbeschwerden,Reizblase,Kürbis,evidenz_basiert,2
+Restharnbildung,Reizblase,Kürbis,evidenz_basiert,2
+häufige Blasenentleerung,Reizblase,Kürbis,evidenz_basiert,2
+nächtlicher Harndrang,Reizblase,Kürbis,evidenz_basiert,2
+nächtlicher und unwillkürlicher Harnabgang,Reizblase,Kürbis,evidenz_basiert,2
+schmerzhaftes Wasserlassen,Reizblase,Kürbis,evidenz_basiert,2
+Appetitlosigkeit,Durchspülung der Harnwege,Löwenzahn,traditionell_hmpc,1
+Appetitlosigkeit,Erhöhung der Harnmenge,Löwenzahn,traditionell_hmpc,1
+Appetitlosigkeit,leichte Harnwegsbeschwerden,Löwenzahn,traditionell_hmpc,1
+Beschwerden beim Wasserlassen,Beschwerden der ableitenden Harnwege im Zusammenhang mit Benigner Prostatahyperplasie (BPH),Kürbis,evidenz_basiert,1
+Beschwerden der ableitenden Harnwege,Beschwerden der ableitenden Harnwege im Zusammenhang mit Benigner Prostatahyperplasie (BPH),Kürbis,traditionell_hmpc,1
+Beschwerden der ableitenden Harnwege,Prostatadenom,Kürbis,traditionell_hmpc,1
+Beschwerden der ableitenden Harnwege,benigne Prostatahyperplasie (BPH),Kürbis,traditionell_hmpc,1
+Beschwerden der ableitenden Harnwege,benignes Prostatasyndrom (BPS),Kürbis,traditionell_hmpc,1
+Blähungen,Durchspülung der Harnwege,Löwenzahn,evidenz_basiert,1
+Blähungen,Durchspülung der Harnwege,Löwenzahn,traditionell_hmpc,1
+Blähungen,Erhöhung der Harnmenge,Löwenzahn,evidenz_basiert,1
+Blähungen,Erhöhung der Harnmenge,Löwenzahn,traditionell_hmpc,1
+Blähungen,krampfartige Beschwerden der Gallenblase und Gallenwege,Pfefferminze,evidenz_basiert,1
+Blähungen,krampfartige Beschwerden der Gallenblase und Gallenwege,Pfefferminze,traditionell_hmpc,1
+Blähungen,leichte Harnwegsbeschwerden,Löwenzahn,evidenz_basiert,1
+Blähungen,leichte Harnwegsbeschwerden,Löwenzahn,traditionell_hmpc,1
+Brennen beim Wasserlassen,Blasenentzündung,Bärentraube,traditionell_hmpc,1
+Brennen beim Wasserlassen,Symptome wiederkehrender Blasenentzündungen,Bärentraube,traditionell_hmpc,1
+Brennen beim Wasserlassen,entzündliche Erkrankungen der ableitenden Harnwege,Bärentraube,traditionell_hmpc,1
+Brennen beim Wasserlassen,unkomplizierte entzündliche Erkrankungen der ableitenden Harnwege,Bärentraube,traditionell_hmpc,1
+Erkältungssymptome,Infekte der ableitenden Harnwege,Echinacea,traditionell_hmpc,1

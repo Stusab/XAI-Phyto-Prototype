@@ -23,7 +23,9 @@ try:
     explain_wirkstoff_interactions,
     generate_layperson_explanation,
     explain_prediction_lime,
-    get_plant_preparations
+    get_plant_preparations,
+    get_plant_medical_checks,
+    get_plant_side_effects
     )
     from src.knowledge_base import GROUP_EXPLANATIONS
 except ImportError as e:
@@ -263,7 +265,12 @@ if submit:
                             st.metric("Relevanz", f"{int(rec['score'] * 100)}%")
 
                         # PROMINENT WARNINGS (Outside Tabs)
-                        st.warning("⚠️ **Hinweis zur Selbstmedikation:** Bei anhaltenden, unklaren oder neu auftretenden Beschwerden sowie bei Fieber über 39°C ist immer ein Arzt aufzusuchen.")
+                        medical_checks = get_plant_medical_checks(rec['plant_id'])
+                        if medical_checks:
+                            reasons_str = " | ".join(medical_checks)
+                            st.error(f"⚠️ **DRINGENDER HINWEIS:** Ein Arztbesuch ist zwingend erforderlich bei: **{reasons_str}**")
+                        else:
+                            st.warning("⚠️ **Hinweis zur Selbstmedikation:** Bei anhaltenden, unklaren oder neu auftretenden Beschwerden sowie bei Fieber über 39°C ist immer ein Arzt aufzusuchen.")
 
                         # EXPLANATION IN PLAIN LANGUAGE (Directly visible)
                         st.markdown("#### 🔍 Warum passt diese Pflanze zu dir?")
@@ -281,13 +288,19 @@ if submit:
                             for h in hints:
                                 st.markdown(f"🔹 {h}")
                                 
+                        side_effects = get_plant_side_effects(rec['plant_id'])
+                        if side_effects:
+                            st.markdown("#### ⚡ Mögliche Nebenwirkungen")
+                            for se in side_effects:
+                                st.markdown(f"- {se}")
+                                
                         # KI-TRANSPARENCY (Expander)
                         with st.expander("📊 KI- und Wirkstoff-Details ansehen"):
-                            tab1, tab2 = st.tabs(["💡 Feature-Einfluss (SHAP)", "🔗 Wirkstoff-Logik"])
+                            tab1, tab2, tab3 = st.tabs(["💡 SHAP (Global)", "🔬 LIME (Lokal)", "🔗 Wirkstoff-Logik"])
                             
                             with tab1:
-                                st.markdown("#### Wie kam diese Empfehlung zustande?")
-                                st.caption("Dieses Diagramm zeigt, wie das KI-Modell Schritt für Schritt zur finalen Empfehlung gelangt ist.")
+                                st.markdown("#### Wie kam diese Empfehlung zustande? (SHAP)")
+                                st.caption("Dieses Diagramm zeigt die globale Verteilung der Gewichte über das gesamte Modell.")
                                 waterfall_fig = explain_prediction_shap_waterfall(rec['plant_id'], rec['input_vector'])
                                 if waterfall_fig is not None:
                                     st.plotly_chart(waterfall_fig, use_container_width=True)
@@ -296,6 +309,19 @@ if submit:
                                 st.markdown(explanation['ebene2'])
 
                             with tab2:
+                                st.markdown("#### Lokale Approximation (LIME)")
+                                st.write(
+                                    "Während SHAP (Tab 1) die Entscheidung exakt mathematisch verteilt, "
+                                    "approximiert LIME das Modell linear in deiner lokalen 'Nachbarschaft'. "
+                                )
+                                
+                                exp_lime_fig = explain_prediction_lime(rec['plant_id'], rec['input_vector'])
+                                if exp_lime_fig:
+                                    st.plotly_chart(exp_lime_fig, use_container_width=True)
+                                else:
+                                    st.caption("LIME Analyse für diese Eingabe nicht verfügbar.")
+
+                            with tab3:
                                 st.write("Welche Wirkstoffe in dieser Pflanze wurden durch deine Symptome aktiviert?")
                                 interactions_df = explain_wirkstoff_interactions(rec['plant_id'], rec['input_vector'], query)
                                 if interactions_df is not None and not interactions_df.empty:

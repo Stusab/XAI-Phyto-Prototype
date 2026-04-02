@@ -1171,3 +1171,33 @@ def get_plant_preparations(plant_id: int):
     except Exception as e:
         print(f"Fetch Prep Error: {e}")
         return pd.DataFrame(), []
+
+def get_plant_medical_checks(plant_id: int):
+    """
+    Lädt harte Trigger (Gründe für Arztbesuch) aus plant_medical_check.
+    """
+    import sqlite3
+    try:
+        conn = sqlite3.connect(DB_PATH)
+        query = f"SELECT reason FROM plant_medical_check WHERE plant_id = {plant_id}"
+        df = pd.read_sql(query, conn)
+        conn.close()
+        return df['reason'].tolist() if not df.empty else []
+    except Exception as e:
+        print(f"Fetch Medical Check Error: {e}")
+        return []
+
+def get_plant_side_effects(plant_id: int):
+    """
+    Lädt Nebenwirkungen (Risikokommunikation) aus plant_side_effect.
+    """
+    import sqlite3
+    try:
+        conn = sqlite3.connect(DB_PATH)
+        query = f"SELECT side_effect FROM plant_side_effect WHERE plant_id = {plant_id}"
+        df = pd.read_sql(query, conn)
+        conn.close()
+        return df['side_effect'].tolist() if not df.empty else []
+    except Exception as e:
+        print(f"Fetch Side Effect Error: {e}")
+        return []

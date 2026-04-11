@@ -25,7 +25,9 @@ try:
     explain_prediction_lime,
     get_plant_preparations,
     get_plant_medical_checks,
-    get_plant_side_effects
+    get_plant_side_effects,
+    get_plant_safety_data,
+    get_plant_medical_details
     )
     from src.knowledge_base import GROUP_EXPLANATIONS
 except ImportError as e:
@@ -96,6 +98,23 @@ with c2:
 
 st.markdown("**Dein evidenzbasierter Pflanzen-Assistent.**")
 
+# --- ONBOARDING TUTORIAL ---
+if "tutorial_seen" not in st.session_state:
+    st.session_state["tutorial_seen"] = False
+
+if not st.session_state["tutorial_seen"]:
+    st.info(
+        "👋 **Willkommen bei PhytoMatch AI!**\n\n"
+        "Dieses System hilft dir dabei, evidenzbasierte Heilpflanzen für deine Beschwerden zu finden.\n\n"
+        "**So funktioniert's:**\n"
+        "1. **Dein Profil (Links):** Gib Alter, evtl. Schwangerschaft und Vorerkrankungen an. Der *Safety Layer* filtert unpassende Pflanzen automatisch heraus.\n"
+        "2. **Symptome:** Wähle eine Hauptbeschwerde und beschreibe sie genauer.\n"
+        "3. **KI-Erklärungen (XAI):** Das System zeigt dir nicht nur Top-Pflanzen, sondern erklärt dir genau, *warum* (Wirkstoffe, Studienlage) sie empfohlen werden.\n\n"
+        "Viel Spaß beim Testen des Prototyps!"
+    )
+    if st.button("Verstanden – Los geht's!", type="primary", use_container_width=True):
+        st.session_state["tutorial_seen"] = True
+        st.rerun()
 # === SYMPTOM-EINGABE: 3-STUFEN-MODELL ===
 st.subheader("🩺 Beschreibe deine Beschwerden")
 
@@ -225,6 +244,26 @@ if submit:
             if excluded_reasons:
                 num_excluded = len(excluded_reasons)
                 st.info(f"👤 **Dein Profil:** Es wurden **{num_excluded} Pflanzen** zu deiner Sicherheit (Safety Layer) proaktiv herausgefiltert.")
+                
+                with st.expander("Warum wurden diese Pflanzen gefiltert?"):
+                    st.write("Folgende Pflanzen passen zwar zu deinen Symptomen, sind aber aufgrund deines Profils aktuell nicht sicher:")
+                    safety_map = get_plant_safety_data(list(excluded_reasons.keys()))
+                    for pid, reasons in excluded_reasons.items():
+                        plant_info = safety_map.get(pid, {})
+                        p_name = plant_info.get('name', f"Pflanze {pid}")
+                        
+                        # Mehr Transparenz: Wenn Schwangerschaftsgrund, nutze den DB-Text falls vorhanden
+                        final_reasons = []
+                        for r in reasons:
+                            if "Schwangerschaft" in r and plant_info.get('safety_text'):
+                                final_reasons.append(plant_info['safety_text'])
+                            elif "Condition-Konflikt" in r and plant_info.get('contra_text'):
+                                # Detaillierterer Text bei individuellen Vorerkrankungen
+                                final_reasons.append(plant_info['contra_text'])
+                            else:
+                                final_reasons.append(r)
+                                
+                        st.markdown(f"- **{p_name}**: {', '.join(final_reasons)}")
             
             if not recommendations:
                 st.warning("Keine passenden Pflanzen gefunden.")
@@ -278,21 +317,44 @@ if submit:
                         
                         # ACTIONABILITY (Dosage directly visible)
                         prep_df, hints = get_plant_preparations(rec['plant_id'])
-                        if not prep_df.empty:
+                        med_details = get_plant_medical_details(rec['plant_id'])
+                        
+                        if not prep_df.empty or med_details.get('dosage_text'):
                             st.markdown("#### 🍵 Anwendung & Dosierung")
-                            prep_display = prep_df.copy()
-                            prep_display.columns = ["Anwendungsform", "Zubereitung / Dosierung"]
-                            st.table(prep_display)
+                            
+                            if not prep_df.empty:
+                                prep_display = prep_df.copy()
+                                prep_display.columns = ["Anwendungsform", "Zubereitung / Dosierung"]
+                                st.table(prep_display)
+                            
+                            if med_details.get('dosage_text'):
+                                st.info(f"**Allgemeine Dosierung:** {med_details['dosage_text']}")
                         
                         if hints:
                             for h in hints:
                                 st.markdown(f"🔹 {h}")
                                 
                         side_effects = get_plant_side_effects(rec['plant_id'])
-                        if side_effects:
+                        med_details = get_plant_medical_details(rec['plant_id'])
+                        
+                        if side_effects or med_details.get('side_effect_note'):
                             st.markdown("#### ⚡ Mögliche Nebenwirkungen")
+                            note = med_details.get('side_effect_note', "")
                             for se in side_effects:
-                                st.markdown(f"- {se}")
+                                # Doppelte Nennung vermeiden, wenn der Begriff schon im ausführlichen Hinweis steht
+                                if not note or se.lower() not in note.lower():
+                                    st.markdown(f"- {se}")
+                            if note:
+                                st.info(note)
+                        
+                        if med_details.get('interaction_text'):
+                            st.markdown("#### 💊 Wechselwirkungen")
+                            st.caption("Achte auf Wechselwirkungen mit anderen Medikamenten:")
+                            st.warning(med_details['interaction_text'])
+                            
+                        if med_details.get('contra_text'):
+                            with st.expander("🚫 Weitere Gegenanzeigen (Kontraindikationen)"):
+                                st.write(med_details['contra_text'])
                                 
                         # KI-TRANSPARENCY (Expander)
                         with st.expander("📊 KI- und Wirkstoff-Details ansehen"):

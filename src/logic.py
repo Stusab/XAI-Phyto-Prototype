@@ -1201,3 +1201,53 @@ def get_plant_side_effects(plant_id: int):
     except Exception as e:
         print(f"Fetch Side Effect Error: {e}")
         return []
+
+def get_plant_safety_data(plant_ids: list) -> dict:
+    """
+    Gibt ein Mapping für die übergebenen IDs zurück (für Safety-Layer-Transparenz und Details).
+    """
+    if not plant_ids:
+        return {}
+    import sqlite3
+    import pandas as pd
+    import os
+    
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    db_path = os.path.join(current_dir, "..", "data", "heilpflanzen.db")
+    if not os.path.exists(db_path):
+        db_path = os.path.join(current_dir, "data", "heilpflanzen.db")
+        
+    try:
+        conn = sqlite3.connect(db_path)
+        ids_str = ",".join(map(str, plant_ids))
+        query = f"""
+            SELECT id, name, schwangerschaft_stillzeit_text, 
+                   kontraindikation_text, wechselwirkungen_details, nebenwirkungen_hinweis_text,
+                   dosierung_text
+            FROM plant 
+            WHERE id IN ({ids_str})
+        """
+        df = pd.read_sql(query, conn)
+        conn.close()
+        
+        res = {}
+        for _, row in df.iterrows():
+            res[row['id']] = {
+                'name': row['name'],
+                'safety_text': row['schwangerschaft_stillzeit_text'],
+                'contra_text': row['kontraindikation_text'],
+                'interaction_text': row['wechselwirkungen_details'],
+                'side_effect_note': row['nebenwirkungen_hinweis_text'],
+                'dosage_text': row['dosierung_text']
+            }
+        return res
+    except Exception as e:
+        print(f"Fetch Safety Data Error: {e}")
+        return {}
+
+def get_plant_medical_details(plant_id: int) -> dict:
+    """
+    Gibt alle medizinischen Detailtexte für eine spezifische Pflanze zurück.
+    """
+    data = get_plant_safety_data([plant_id])
+    return data.get(plant_id, {})

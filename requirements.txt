@@ -8,3 +8,4 @@ plotly
 sentence-transformers
 joblib
 torch
+python-dotenv

@@ -104,7 +104,7 @@ if "tutorial_seen" not in st.session_state:
 
 if not st.session_state["tutorial_seen"]:
     st.info(
-        "👋 **Willkommen bei PhytoMatch AI!**\n\n"
+        "**Willkommen bei PhytoMatch AI!**\n\n"
         "Dieses System hilft dir dabei, evidenzbasierte Heilpflanzen für deine Beschwerden zu finden.\n\n"
         "**So funktioniert's:**\n"
         "1. **Dein Profil (Links):** Gib Alter, evtl. Schwangerschaft und Vorerkrankungen an. Der *Safety Layer* filtert unpassende Pflanzen automatisch heraus.\n"

@@ -104,7 +104,7 @@ if "tutorial_seen" not in st.session_state:
 
 if not st.session_state["tutorial_seen"]:
     st.info(
-        "**Willkommen bei PhytoMatch AI!**\n\n"
+        "👋 **Willkommen bei PhytoMatch AI!**\n\n"
         "Dieses System hilft dir dabei, evidenzbasierte Heilpflanzen für deine Beschwerden zu finden.\n\n"
         "**So funktioniert's:**\n"
         "1. **Dein Profil (Links):** Gib Alter, evtl. Schwangerschaft und Vorerkrankungen an. Der *Safety Layer* filtert unpassende Pflanzen automatisch heraus.\n"
@@ -362,7 +362,12 @@ if submit:
                             
                             with tab1:
                                 st.markdown("#### Wie kam diese Empfehlung zustande? (SHAP)")
-                                st.caption("Dieses Diagramm zeigt die globale Verteilung der Gewichte über das gesamte Modell.")
+                                st.info(
+                                    "**Wie man dieses Diagramm liest:**\n\n"
+                                    "1. **Basis-Wahrscheinlichkeit (Grau):** Die grundsätzliche Wahrscheinlichkeit, dass das System *irgendeine* Pflanze empfiehlt, bevor es deine Symptome kennt.\n"
+                                    "2. **Dein Einfluss (Blau):** Jedes deiner gefundenen Symptome addiert +X% zur Wahrscheinlichkeit hinzu. Je weniger Symptome du eingibst, desto weniger blaue Balken siehst du.\n"
+                                    "3. **Finale Empfehlung (Grün):** Zählt alles zusammen und ergibt die finale Relevanz."
+                                )
                                 waterfall_fig = explain_prediction_shap_waterfall(rec['plant_id'], rec['input_vector'])
                                 if waterfall_fig is not None:
                                     st.plotly_chart(waterfall_fig, use_container_width=True)
@@ -372,9 +377,11 @@ if submit:
 
                             with tab2:
                                 st.markdown("#### Lokale Approximation (LIME)")
-                                st.write(
-                                    "Während SHAP (Tab 1) die Entscheidung exakt mathematisch verteilt, "
-                                    "approximiert LIME das Modell linear in deiner lokalen 'Nachbarschaft'. "
+                                st.info(
+                                    "**Wie man dieses Diagramm liest:**\n\n"
+                                    "1. **Die Ausgansposition:** LIME ignoriert alle anderen Pflanzen und schaut sich *nur* diese spezielle Empfehlung an.\n"
+                                    "2. **Dein Einfluss (Grün/Rot):** Grüne Balken zeigen Symptome, die *für* diese Pflanze sprechen. Rote Balken zeigen Symptome, die eigentlich *dagegen* sprechen würden (z.B. wenn die Pflanze für Husten ist, du aber Bauchweh eingegeben hast).\n"
+                                    "3. **Interpretation:** LIME ist oft simpler zu lesen als SHAP, zeigt aber nur einen sehr lokalen Ausschnitt der KI-Entscheidung."
                                 )
                                 
                                 exp_lime_fig = explain_prediction_lime(rec['plant_id'], rec['input_vector'])

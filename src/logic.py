@@ -708,7 +708,8 @@ def explain_prediction_shap_waterfall(plant_id, input_vector):
     
     # User Testing zeigte, dass negative SHAP-Werte bei Laien stark verwirrend sind.
     # Daher kehren wir zurück zu: Nur positive Einflussfaktoren rendern.
-    df = df[df['shap_value'] > 0.001]
+    # Schwellenwert auf > 0.0 gesetzt, da kleine Wahrscheinlichkeiten sonst weggeschnitten werden
+    df = df[df['shap_value'] > 0.0]
     
     if df.empty:
         return None
@@ -719,11 +720,25 @@ def explain_prediction_shap_waterfall(plant_id, input_vector):
     # 9. Feature-Namen bereinigen (für schöne Anzeige)
     def clean_name(s):
         s = s.replace('sym_', '').replace('use_', '').replace('chem_', '')
-        s = s.replace('evidenz_basiert_', '').replace('traditionell_', '')
+        s = s.replace('evidenz_basiert_', '').replace('traditionell_', '').replace('traditionell_hmpc_', '')
         s = s.replace('_', ' ')
         return s.title()  # Erster Buchstabe groß
     
     df['clean_name'] = df['feature'].apply(clean_name)
+    
+    # 9b. Nach clean_name gruppieren (fasst sym_fieber, use_fieber etc. intelligent zusammen)
+    df = df.groupby('clean_name', as_index=False)['shap_value'].sum()
+    
+    # User Testing zeigte, dass negative SHAP-Werte bei Laien stark verwirrend sind.
+    # Daher kehren wir zurück zu: Nur positive Einflussfaktoren rendern.
+    # Schwellenwert auf > 0.0 gesetzt, da kleine Wahrscheinlichkeiten sonst weggeschnitten werden
+    df = df[df['shap_value'] > 0.0]
+    
+    if df.empty:
+        return None
+        
+    # 8. Nach Wichtigkeit sortieren (negative und positive für logischen Flow)
+    df = df.sort_values('shap_value', ascending=True)
     
     # 10. Waterfall-Logik: Kumulative Summe berechnen
     # Base Value = Durchschnitts-Wahrscheinlichkeit (Expected Value des Explainers)
@@ -756,21 +771,18 @@ def explain_prediction_shap_waterfall(plant_id, input_vector):
         hovertemplate='Startpunkt: %{x:.2%}<extra></extra>'
     ))
     
-    # Schritt B: Jedes Feature als "Stufe"
-    for idx, row in df.iterrows():
-        val = row['shap_value']
-        
-        fig.add_trace(go.Bar(
-            name=row['clean_name'],
-            x=[val],
-            y=[row['clean_name']],
-            orientation='h',
-            marker=dict(color='#42a5f5'),  # Blau, konsistent und fokussiert
-            text=[f"+{val:.2f}"],
-            textposition='outside',
-            base=row['cumsum'] - val,  # Startet wo vorheriger endete
-            hovertemplate=f"{row['clean_name']}<br>Einfluss: +%{{x:.3f}}<extra></extra>"
-        ))
+    # Schritt B: Alle Features als EIN Trace (verhindert mikroskopisch dünne Balken!)
+    fig.add_trace(go.Bar(
+        name='Einflussfaktoren',
+        x=df['shap_value'].tolist(),
+        y=df['clean_name'].tolist(),
+        orientation='h',
+        marker=dict(color='#42a5f5'),  # Blau, konsistent und fokussiert
+        text=[f"+{v:.4f}" for v in df['shap_value']],
+        textposition='outside',
+        base=(df['cumsum'] - df['shap_value']).tolist(),
+        hovertemplate="%{y}<br>Einfluss: +%{x:.4f}<extra></extra>"
+    ))
     
     # Schritt C: Finale Vorhersage (Ende)
     final_pred = df['cumsum'].iloc[-1]
@@ -792,6 +804,7 @@ def explain_prediction_shap_waterfall(plant_id, input_vector):
         yaxis_title="",
         showlegend=False,
         height=400,
+        barmode='overlay', # Verhindert Platzreservierung für unsichtbare Kategorien
         template='plotly_white',
         margin=dict(l=20, r=20, t=40, b=20)
     )
@@ -967,7 +980,7 @@ def generate_layperson_explanation(
         konfidenz_emoji = ""
         evidenz_text = (
             f"**{plant_name}** wird **traditionell** bei deinen Beschwerden angewendet. "
-            f"Das bedeutet: über 30 Jahre dokumentierte Anwendung, aber noch keine abschließende Laborstudie."
+            f"Das bedeutet: Die Wirksamkeit ist durch eine über 30 Jahre dokumentierte, medizinische Anwendungserfahrung (davon mind. 15 Jahre in der EU) plausibel belegt. Die unbedenkliche Sicherheit ist durch bibliografische Daten garantiert, weshalb für diese Einstufung keine zusätzlichen klinischen Studien zwingend nötig sind."
         )
     else:
         konfidenz = "indirekt"

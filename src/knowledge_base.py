@@ -62,8 +62,17 @@ PHYTO_GROUPS = {
         "Bitterstoffe", "Bitterstoffe vom Secoiridoidtyp", "Sesquiterpen-Bitterstoffe",
         "Sesquiterpenlacton-Bitterstoffe", "Sesquiterpenlactone", "Gentisin", "Gentianose",
         "Diterpenlactone", "Hopfenharz", "bittere Phloroglucinderivate (Hopfenbitterstoffe)",
-        "bittere Diterpenphenole", "Helenaline", "Dihydrohelenaline", "Guajanolide",
         "Iridoide", "Iridoidglykoside"
+    ],
+
+    # PHYTOSTEROLE (Buch-Kontext: Prostata, Blase. DB: Phytosterole, Sterole)
+    "phytosterols": [
+        "Phytosterole", "Sterole"
+    ],
+
+    # HORMON-MODULATOREN (Buch-Kontext: Frauenheilkunde, PMS, Wechseljahre. DB: Diterpene, Triterpenglykoside)
+    "hormone_modulators": [
+        "Diterpene", "Triterpenglykoside"
     ]
     # SONSTIGE (nicht buch-spezifisch gruppiert: z.B. Arbutin, Alkaloide, Scharfstoffe etc. → bei Bedarf erweitern)
 }
@@ -80,13 +89,24 @@ SYMPTOM_TO_GROUP_RULES = {
     "reizhusten": ["mucilages"],
     "hals": ["mucilages", "tannins"],
     "schleim": ["saponins", "essential_oils"],
-    "wunde": ["tannins", "flavonoids"],
+    "wunde": ["tannins", "flavonoids", "essential_oils"],
     "entzündung": ["flavonoids", "tannins"],
-    "haut": ["tannins", "flavonoids", "mucilages"],
+    "haut": ["tannins", "flavonoids", "mucilages", "essential_oils"],
+    "juckreiz": ["tannins", "mucilages", "essential_oils"],
+    "verbrennung": ["mucilages", "tannins"],
     "immun": ["lignans", "saponins"],
     "herz": ["flavonoids"],
     "ödeme": ["coumarins", "flavonoids"],
-    "blutzucker": ["coumarins"]
+    "blutzucker": ["coumarins"],
+    "prostata": ["phytosterols"],
+    "harn": ["phytosterols"],
+    "blase": ["phytosterols"],
+    "miktion": ["phytosterols"],
+    "menstruation": ["hormone_modulators"],
+    "pms": ["hormone_modulators"],
+    "zyklus": ["hormone_modulators"],
+    "regel": ["hormone_modulators"],
+    "wechseljahre": ["hormone_modulators"]
 }
 
 # Reale Symptom-Cluster für die Trainingsdaten-Erzeugung
@@ -110,6 +130,14 @@ SYMPTOM_CLUSTERS = {
     "Schmerz": {
         "keywords": ["kopf", "muskel", "gelenk", "rheuma", "schmerz", "migräne"],
         "probability": 0.10
+    },
+    "Blase & Prostata": {
+        "keywords": ["prostata", "harn", "blase", "miktion", "wasserlassen"],
+        "probability": 0.05
+    },
+    "Frauengesundheit & Zyklus": {
+        "keywords": ["menstruation", "periode", "zyklus", "pms", "wechseljahre", "hitzewallung", "unterleib", "regelblutung"],
+        "probability": 0.10
     }
 }
 
@@ -124,7 +152,9 @@ GROUP_EXPLANATIONS = {
     "saponins": "Schäumen, senken Oberflächenspannung: Auswurffördernd bei Husten, keimtötend.",
     "mucilages": "Schleimhautschützend: Lindert Reiz, reguliert Stuhl.",
     "essential_oils": "Desinfizierend, schleimlösend, krampflösend.",
-    "bitters": "Verdauungsfördernd, appetitanregend."
+    "bitters": "Verdauungsfördernd, appetitanregend.",
+    "phytosterols": "Hormonmodulierend: Gegen entzündliche und gutartige Prostata-/Blasenbeschwerden.",
+    "hormone_modulators": "Hormonmodulierend (dopaminerg/östrogenartig): Reguliert Zyklusstörungen, PMS und Wechseljahresbeschwerden."
 }
 
 # XAI-Erklärungen für Laien (Endnutzer-UI)
@@ -138,6 +168,8 @@ GROUP_LAYPERSON_EXPLANATIONS = {
     'anthranoids': 'Sie wirkt abführend, indem sie die Wasseraufnahme im Darm reduziert.',
     'coumarins': 'Sie enthält **Cumarine**, die gerinnungshemmend und entzündungshemmend wirken.',
     'lignans': 'Sie enthält **Lignane**, die das Immunsystem stärken können.',
+    'phytosterols': 'Sie enthält **Phytosterole**, welche sanft hormonell ausgleichend wirken und typische Beschwerden beim Wasserlassen oder durch eine vergrößerte Prostata lindern können.',
+    'hormone_modulators': 'Sie enthält spezielle **Pflanzenstoffe (wie Diterpene oder Triterpenglykoside)**, die an körpereigene Botenstoffe andocken. Das hilft, den Hormonhaushalt sanft zu regulieren – ideal bei Zyklusstörungen, PMS oder Wechseljahresbeschwerden.'
 }
 
 def get_boosted_chemicals(user_text: str) -> list:
@@ -173,7 +205,10 @@ IMPORTANT_SYMPTOMS_MAPPING = {
     'fieber': ['fieber'],
     'kopf': ['kopf', 'kopfschmerzen', 'kopfschmerz', 'kopfweh', 'migräne', 'migraene'],
     'uebelkeit': ['uebelkeit', 'übelkeit', 'nausea', 'erbrechen', 'brechreiz'],
-    'magen': ['magen', 'bauch', 'magenschmerzen', 'bauchschmerzen', 'verdauung', 'voellegefuehl', 'völlegefühl', 'blaehungen', 'blähungen']
+    'magen': ['magen', 'bauch', 'magenschmerzen', 'bauchschmerzen', 'verdauung', 'voellegefuehl', 'völlegefühl', 'blaehungen', 'blähungen'],
+    'prostata_blase': ['prostata', 'bph', 'miktion', 'harn', 'blase', 'harndrang', 'wasserlassen', 'harnstrahl', 'entleerung'],
+    'frauengesundheit': ['menstruation', 'periode', 'zyklus', 'pms', 'wechseljahre', 'hitzewallung', 'unterleib', 'unterleibsschmerzen', 'regelblutung', 'brustspannen'],
+    'haut_wunden': ['haut', 'wunde', 'schürfwunde', 'juckreiz', 'ausschlag', 'ekzem', 'brennen', 'verletzung', 'verbrennung', 'neurodermitis', 'akne', 'pickel']
 }
 
 # 2. UI-Hauptsymptome Mapping (Für Bonus-Scoring in logic.py)
@@ -182,7 +217,12 @@ PRIMARY_SYMPTOMS_MAPPING = {
     "husten": ["husten", "bronchitis"],
     "halsschmerzen": ["hals", "halsschmerz", "rachen"],
     "magenbeschwerden": ["magen", "bauch", "verdauung"],
-    "übelkeit": ["uebelkeit", "übelkeit", "nausea", "erbrechen"]
+    "übelkeit": ["uebelkeit", "übelkeit", "nausea", "erbrechen"],
+    "prostatabeschwerden": ["prostata", "miktion", "harn", "harndrang", "wasserlassen", "entleerung"],
+    "blasenentzündung": ["blase", "harn", "brennen", "wasserlassen"],
+    "menstruationsbeschwerden": ["menstruation", "periode", "zyklus", "pms", "blutung", "regelblutung", "unterleib", "krämpfe"],
+    "wechseljahresbeschwerden": ["wechseljahre", "hitzewallung", "schwitzen", "klimakterium"],
+    "hautproblem": ["haut", "wunde", "schürfwunde", "juckreiz", "ekzem", "ausschlag", "brennen", "verletzung", "verbrennung"]
     # weitere bei Bedarf hier zentral ergänzen
 }
 

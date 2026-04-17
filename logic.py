@@ -708,7 +708,8 @@ def explain_prediction_shap_waterfall(plant_id, input_vector):
     
     # User Testing zeigte, dass negative SHAP-Werte bei Laien stark verwirrend sind.
     # Daher kehren wir zurück zu: Nur positive Einflussfaktoren rendern.
-    df = df[df['shap_value'] > 0.001]
+    # Schwellenwert auf > 0.0 gesetzt, da kleine Wahrscheinlichkeiten sonst weggeschnitten werden
+    df = df[df['shap_value'] > 0.0]
     
     if df.empty:
         return None

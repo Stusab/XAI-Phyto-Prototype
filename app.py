@@ -255,15 +255,16 @@ if submit:
                         # Mehr Transparenz: Wenn Schwangerschaftsgrund, nutze den DB-Text falls vorhanden
                         final_reasons = []
                         for r in reasons:
-                            if "Schwangerschaft" in r and plant_info.get('safety_text'):
+                            if "Schwangerschaft" in r and isinstance(plant_info.get('safety_text'), str):
                                 final_reasons.append(plant_info['safety_text'])
-                            elif "Condition-Konflikt" in r and plant_info.get('contra_text'):
-                                # Detaillierterer Text bei individuellen Vorerkrankungen
+                            elif "Condition-Konflikt" in r and isinstance(plant_info.get('contra_text'), str):
                                 final_reasons.append(plant_info['contra_text'])
                             else:
-                                final_reasons.append(r)
+                                final_reasons.append(str(r))
                                 
-                        st.markdown(f"- **{p_name}**: {', '.join(final_reasons)}")
+                        # Absolute Sicherheit: Cast auf String und entferne eventuelle leere/nan Werte
+                        safe_reasons = [str(x) for x in final_reasons if x is not None and str(x).lower() != 'nan' and str(x).strip() != '']
+                        st.markdown(f"- **{p_name}**: {', '.join(safe_reasons)}")
             
             if not recommendations:
                 st.warning("Keine passenden Pflanzen gefunden.")

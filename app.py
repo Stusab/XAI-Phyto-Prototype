@@ -15,7 +15,7 @@ from src.symptom_catalog import get_main_symptoms  # NEU
 try:
     # HIER IST DER FIX: Wir importieren load_and_fuse_data und nennen es load_data
     from src.data_loader import load_and_fuse_data
-    from src.models import UserProfile
+    from src.models import UserProfile, get_tags_by_category
     from src.logic import (
     get_recommendations, 
     explain_prediction_shap, 
@@ -85,7 +85,7 @@ with st.sidebar:
     selected_conditions = []
     for cat in conditions_list:
         if st.checkbox(cat, key=cat):
-            selected_conditions.append(cat)
+            selected_conditions.extend(get_tags_by_category(cat))
 
     
    
